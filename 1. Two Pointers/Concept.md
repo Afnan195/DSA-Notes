@@ -1,1 +1,1 @@
-# This is Concept of Two pointers
+# This is Concept of Two pointer
