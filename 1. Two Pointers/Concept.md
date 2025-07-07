@@ -112,6 +112,27 @@ for (int i = 0; i < arr.size(); i++) {
 }
 ```
 
+The above template is used only to check the existence -> unordered_set is used
+
+```c++
+unordered_map<int, int> mp;  // value → index
+    for (int i = 0; i < nums.size(); i++) {
+        int complement = target - nums[i];
+
+        // check if complement exists in map
+        if (mp.find(complement) != mp.end()) {
+            return {mp[complement], i};  // return their indices
+        }
+
+        // store current value with its index
+        mp[nums[i]] = i;
+    }
+
+    return {};  // no pair found
+```
+
+The above template is used to store key value pairs -> unordered_map is used
+
 * We use a hash set so that values can be quickly compared and looked up in constant time (O(1)) using the hash table.
 
 ![alt text](two_pointers_optimized_unsorted_array_hashset.jpg)
