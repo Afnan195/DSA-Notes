@@ -114,21 +114,35 @@ for (int i = 0; i < arr.size(); i++) {
 
 The above template is used only to check the existence -> unordered_set is used
 
+or
+
 ```c++
-unordered_map<int, int> mp;  // value → index
+#include <iostream>
+#include <vector>
+#include <unordered_map>
+using namespace std;
+
+void runTwoSum() {
+    vector<int> nums = {1, 3, 4, 2};  // array initialized here
+    int target = 6;
+
+    unordered_map<int, int> mp;  // value → index
+
     for (int i = 0; i < nums.size(); i++) {
         int complement = target - nums[i];
 
-        // check if complement exists in map
         if (mp.find(complement) != mp.end()) {
-            return {mp[complement], i};  // return their indices
+            cout << "Indices: " << mp[complement] << ", " << i << endl;
+            cout << "Values: " << nums[mp[complement]] << ", " << nums[i] << endl;
+            return;
         }
 
-        // store current value with its index
         mp[nums[i]] = i;
     }
 
-    return {};  // no pair found
+    cout << "No pair found" << endl;
+}
+
 ```
 
 The above template is used to store key value pairs -> unordered_map is used
